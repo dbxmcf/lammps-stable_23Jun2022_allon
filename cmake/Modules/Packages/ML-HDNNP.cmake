@@ -44,6 +44,7 @@ if(DOWNLOAD_N2P2)
   else()
     # get path to MPI include directory
     get_target_property(N2P2_MPI_INCLUDE MPI::MPI_CXX INTERFACE_INCLUDE_DIRECTORIES)
+    #set(N2P2_PROJECT_OPTIONS "-I${N2P2_MPI_INCLUDE}")
     set(N2P2_PROJECT_OPTIONS "-I${N2P2_MPI_INCLUDE}")
   endif()
 
