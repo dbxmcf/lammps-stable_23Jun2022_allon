@@ -4,7 +4,7 @@
 # with just a working C++ compiler and an MPI library.
 
 set(ALL_PACKAGES
-  ADIOS
+	#  ADIOS
   ASPHERE
   ATC
   AWPMD
@@ -37,14 +37,14 @@ set(ALL_PACKAGES
   FEP
   GPU
   GRANULAR
-  H5MD
+  #  H5MD
   INTEL
   INTERLAYER
-  KIM
-  KOKKOS
+#  KIM
+  #KOKKOS
   KSPACE
   LATBOLTZ
-  LATTE
+  #LATTE
   MACHDYN
   MANIFOLD
   MANYBODY
@@ -63,9 +63,9 @@ set(ALL_PACKAGES
   MOFFF
   MOLECULE
   MOLFILE
-  MPIIO
+  #MPIIO
   MSCG
-  NETCDF
+  #NETCDF
   OPENMP
   OPT
   ORIENT
@@ -83,7 +83,7 @@ set(ALL_PACKAGES
   REAXFF
   REPLICA
   RIGID
-  SCAFACOS
+  #SCAFACOS
   SHOCK
   SMTBQ
   SPH
@@ -92,7 +92,7 @@ set(ALL_PACKAGES
   TALLY
   UEF
   VORONOI
-  VTK
+  #VTK
   YAFF)
 
 foreach(PKG ${ALL_PACKAGES})
