@@ -1,0 +1,129 @@
+# Preset that turns on all existing packages. Using the combination
+# of this preset followed by the nolib.cmake preset should configure
+# a LAMMPS binary, with as many packages included, that can be compiled
+# with just a working C++ compiler and an MPI library.
+
+set(ALL_PACKAGES
+	#  ADIOS
+  ASPHERE
+  ATC
+  AWPMD
+  BOCS
+  BODY
+  BPM
+  BROWNIAN
+  CG-DNA
+  CG-SDK
+  CLASS2
+  COLLOID
+  COLVARS
+  COMPRESS
+  CORESHELL
+  DIELECTRIC
+  DIFFRACTION
+  DIPOLE
+  DPD-BASIC
+  DPD-MESO
+  DPD-REACT
+  DPD-SMOOTH
+  DRUDE
+  ELECTRODE
+  EFF
+  EXTRA-COMPUTE
+  EXTRA-DUMP
+  EXTRA-FIX
+  EXTRA-MOLECULE
+  EXTRA-PAIR
+  FEP
+  GPU
+  GRANULAR
+  #  H5MD
+  INTEL
+  INTERLAYER
+  KIM
+  #KOKKOS
+  KSPACE
+  LATBOLTZ
+  #LATTE
+  MACHDYN
+  MANIFOLD
+  MANYBODY
+  MC
+  MDI
+  MEAM
+  MESONT
+  MGPT
+  MISC
+  ML-HDNNP
+  ML-IAP
+  ML-PACE
+  ML-QUIP
+  ML-RANN
+  ML-SNAP
+  MOFFF
+  MOLECULE
+  MOLFILE
+  #MPIIO
+  MSCG
+  #NETCDF
+  OPENMP
+  OPT
+  ORIENT
+  PERI
+  PHONON
+  PLUGIN
+  PLUMED
+  POEMS
+  PTM
+  PYTHON
+  QEQ
+  QMMM
+  QTB
+  REACTION
+  REAXFF
+  REPLICA
+  RIGID
+  #SCAFACOS
+  SHOCK
+  SMTBQ
+  SPH
+  SPIN
+  SRD
+  TALLY
+  UEF
+  VORONOI
+  #VTK
+  YAFF)
+
+foreach(PKG ${ALL_PACKAGES})
+  set(PKG_${PKG} ON CACHE BOOL "" FORCE)
+endforeach()
+
+# preset that will enable Intel compilers with support for MPI and OpenMP (on Linux boxes)
+
+set(CMAKE_CXX_COMPILER "icpc" CACHE STRING "" FORCE)
+set(CMAKE_C_COMPILER "icc" CACHE STRING "" FORCE)
+set(CMAKE_Fortran_COMPILER "ifort" CACHE STRING "" FORCE)
+set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wextra -g" CACHE STRING "" FORCE)
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Wall -Wextra -g -O2 -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_Fortran_FLAGS_DEBUG "-Wall -Wextra -g" CACHE STRING "" FORCE)
+set(CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-Wall -Wextra -g -O2 -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_C_FLAGS_DEBUG "-Wall -Wextra -g" CACHE STRING "" FORCE)
+set(CMAKE_C_FLAGS_RELWITHDEBINFO "-Wall -Wextra -g -O2 -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "" FORCE)
+
+set(MPI_CXX "mpiicpc" CACHE STRING "" FORCE)
+set(MPI_CXX_COMPILER "mpiicpc" CACHE STRING "" FORCE)
+
+unset(HAVE_OMP_H_INCLUDE CACHE)
+set(OpenMP_C "icc" CACHE STRING "" FORCE)
+set(OpenMP_C_FLAGS "-qopenmp" CACHE STRING "" FORCE)
+set(OpenMP_C_LIB_NAMES "omp" CACHE STRING "" FORCE)
+set(OpenMP_CXX "icpc" CACHE STRING "" FORCE)
+set(OpenMP_CXX_FLAGS "-qopenmp" CACHE STRING "" FORCE)
+set(OpenMP_CXX_LIB_NAMES "omp" CACHE STRING "" FORCE)
+set(OpenMP_Fortran_FLAGS "-qopenmp" CACHE STRING "" FORCE)
+set(OpenMP_omp_LIBRARY "libiomp5.so" CACHE PATH "" FORCE)
+
